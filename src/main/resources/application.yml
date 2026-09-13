@@ -668,6 +668,8 @@ floci:
       vtl-max-loops: 10000                 # Maximum #foreach iterations a VTL resolver template may execute (truncates the loop, does not fail the template)
       vtl-max-output-chars: 1048576        # Maximum characters a VTL resolver template may render before it fails
       vtl-timeout-millis: 5000             # Maximum wall-clock time a VTL resolver template may spend evaluating before it fails
+      # graphql-url: http://floci-graphql:8181  # set to skip sidecar container management
+      graphql-image: "floci/floci:latest-graphql"
     s3vectors:
       enabled: true
     s3tables:

@@ -378,6 +378,7 @@ floci:
       vtl-max-loops: 10000
       vtl-max-output-chars: 1048576
       vtl-timeout-millis: 5000
+      graphql-url: http://127.0.0.1:18181
     s3vectors:
       enabled: true
     s3tables:
