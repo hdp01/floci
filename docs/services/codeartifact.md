@@ -13,28 +13,28 @@ and public upstream (external) connections. Package publish/fetch endpoints for 
 <!-- floci:actions:start -->
 | Action | Description |
 | --- | --- |
-| `CreateDomain` | - |
-| `DeleteDomain` | - |
-| `DescribeDomain` | - |
-| `ListDomains` | - |
-| `PutDomainPermissionsPolicy` | - |
-| `GetDomainPermissionsPolicy` | - |
-| `DeleteDomainPermissionsPolicy` | - |
-| `CreateRepository` | - |
-| `DeleteRepository` | - |
-| `DescribeRepository` | - |
-| `UpdateRepository` | - |
-| `ListRepositories` | - |
-| `ListRepositoriesInDomain` | - |
-| `GetRepositoryEndpoint` | - |
-| `PutRepositoryPermissionsPolicy` | - |
-| `GetRepositoryPermissionsPolicy` | - |
-| `DeleteRepositoryPermissionsPolicy` | - |
-| `AssociateExternalConnection` | - |
-| `DisassociateExternalConnection` | - |
-| `TagResource` | - |
-| `UntagResource` | - |
-| `ListTagsForResource` | - |
+| `CreateDomain` | Creates a domain, optionally with a KMS encryption key and initial tags. |
+| `DeleteDomain` | Deletes a domain; fails with `ConflictException` while it still contains repositories. |
+| `DescribeDomain` | Returns a domain's full description, including its repository count. |
+| `ListDomains` | Lists domain summaries for the account and Region, paginated. |
+| `PutDomainPermissionsPolicy` | Attaches or replaces a domain's resource policy, versioned by `policyRevision`. |
+| `GetDomainPermissionsPolicy` | Returns a domain's current resource policy and revision. |
+| `DeleteDomainPermissionsPolicy` | Removes a domain's resource policy, optionally checked against `policyRevision`. |
+| `CreateRepository` | Creates a repository with optional description, upstreams (max 10), and tags. |
+| `DeleteRepository` | Deletes a repository. |
+| `DescribeRepository` | Returns a repository's full description, including upstreams and external connections. |
+| `UpdateRepository` | Updates a repository's description and/or upstream list. |
+| `ListRepositories` | Lists repository summaries across all domains, optionally filtered by name prefix. |
+| `ListRepositoriesInDomain` | Lists repository summaries within one domain, optionally filtered by name prefix. |
+| `GetRepositoryEndpoint` | Returns the package-format-specific endpoint URL for a repository. |
+| `PutRepositoryPermissionsPolicy` | Attaches or replaces a repository's resource policy, versioned by `policyRevision`. |
+| `GetRepositoryPermissionsPolicy` | Returns a repository's current resource policy and revision. |
+| `DeleteRepositoryPermissionsPolicy` | Removes a repository's resource policy, optionally checked against `policyRevision`. |
+| `AssociateExternalConnection` | Attaches a fixed-catalog public upstream (e.g. `public:npmjs`) to a repository; mutually exclusive with repository upstreams. |
+| `DisassociateExternalConnection` | Removes a repository's external connection. |
+| `TagResource` | Adds or updates tags on a domain or repository ARN. |
+| `UntagResource` | Removes tags by key from a domain or repository ARN. |
+| `ListTagsForResource` | Lists the tags on a domain or repository ARN. |
 <!-- floci:actions:end -->
 
 Domains and repositories are account and Region scoped and persisted through `StorageFactory`.

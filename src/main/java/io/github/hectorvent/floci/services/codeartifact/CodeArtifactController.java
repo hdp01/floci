@@ -294,7 +294,8 @@ public class CodeArtifactController {
         return ok(objectMapper.createObjectNode());
     }
 
-    // ListTagsForResource (POST /v1/tags?resourceArn=) is handled by V1TagsController; see its javadoc.
+    // ListTagsForResource (POST /v1/tags?resourceArn=) is handled by V1TagsController via
+    // CodeArtifactTagHandler; see their javadoc.
 
     // ----------------------------------------------------------------- helpers
 

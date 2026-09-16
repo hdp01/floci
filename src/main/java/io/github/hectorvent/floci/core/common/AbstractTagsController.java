@@ -8,6 +8,7 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
@@ -37,6 +38,18 @@ public abstract class AbstractTagsController {
     @Path("/{arn: .+}")
     public Response listTags(@Context HttpHeaders headers, @PathParam("arn") String arn) {
         return dispatcher.listTagsForArn(headers, arn);
+    }
+
+    /**
+     * {@code ListTagsForResource} for services that address the resource with a query
+     * parameter on the bare path (e.g. {@code POST /v1/tags?resourceArn=...}) rather than a
+     * path segment. CodeArtifact is the only registered handler on this shape today.
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response listTagsForResourceByQuery(@Context HttpHeaders headers,
+                                               @QueryParam("resourceArn") String resourceArn) {
+        return dispatcher.listTagsForArn(headers, resourceArn);
     }
 
     @POST
